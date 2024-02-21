@@ -25,8 +25,14 @@ export class Wallet {
     if (currency == Currency.USD) {
       if (this._balance.currency() == Currency.INR) return amount * 2;
       return amount / 2;
-    } else {
+    } else if (currency == Currency.EUR) {
+      if (this._balance.currency() == Currency.INR) return amount * 4;
       return amount / 2;
+    } else {
+      if (this._balance.currency() == Currency.EUR) {
+        return amount * 0.25;
+      }
+      return amount * 0.5;
     }
   }
 

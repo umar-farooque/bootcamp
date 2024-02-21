@@ -90,4 +90,13 @@ describe("Behaviours of Wallet", () => {
     const balance = wallet.balance();
     expect(balance).toEqual(new Money(Currency.EUR, 2));
   });
+
+  it("should return the balance EUR 2 when I add EUR 1 and Rs 4 to the wallet", () => {
+    const wallet = new Wallet(Currency.EUR);
+    wallet.credit(new Money(Currency.EUR, 1));
+    wallet.credit(new Money(Currency.INR, 4));
+
+    const balance = wallet.balance();
+    expect(balance).toEqual(new Money(Currency.EUR, 2));
+  });
 });
