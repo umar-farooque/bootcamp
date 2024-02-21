@@ -1,4 +1,4 @@
-import { Currency } from "./Wallet";
+import { Currency } from "./Currency";
 
 export class Money {
   private _currency: Currency;
@@ -8,12 +8,18 @@ export class Money {
     this._currency = currency;
     this._amount = amount;
   }
+  addMoney(money: Money): Money {
+    if (money.currency == this.currency)
+      return new Money(this.currency, money.amount + this.amount);
+    const convertedAmount = this.currency.convert(money.amount, money.currency);
+    return new Money(this.currency, this.amount + convertedAmount);
+  }
 
-  amount() {
+  get amount() {
     return this._amount;
   }
 
-  currency() {
+  get currency() {
     return this._currency;
   }
 }

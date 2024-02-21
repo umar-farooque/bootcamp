@@ -1,5 +1,6 @@
-import { Currency, Wallet } from "../src/Wallet";
+import { Wallet } from "../src/Wallet";
 import { Money } from "../src/Money";
+import { Currency } from "../src/Currency";
 
 const INR10 = new Money(Currency.INR, 10);
 
